@@ -1,0 +1,19 @@
+{
+	"id": "VMS",
+	"description": "",
+	"event": [
+		{
+			"id": "TXP06/in",
+			"description": ""
+		},
+		{
+			"id": "CC07/out",
+			"description": ""
+		},
+		{
+			"id": "TSO11/out",
+			"description": ""
+		}
+	]
+	]
+}
