@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Example",
+		"_postman_id": "f7c4832c-9a6f-5698-a46e-04a223815368",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "15",
+			"request": {
+				"url": "http://localhost:8082/events/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 15,\r\n  \"systemId\": 25,\r\n  \"eventFlowID\": 0,\r\n  \"processKey\": 1,\r\n  \"date\": 1476185861679,\r\n  \"messagedetails\": \"\",\r\n  \"errormessage\": \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16",
+			"request": {
+				"url": "http://localhost:8082/events/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 16,\r\n  \"systemId\": 25,\r\n  \"eventFlowID\": 0,\r\n  \"processKey\": 1,\r\n  \"date\": 1476185861679,\r\n  \"messagedetails\": \"\",\r\n  \"errormessage\": \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16 copy",
+			"request": {
+				"url": "http://localhost:8082/events/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 19,\r\n  \"systemId\": 25,\r\n  \"eventFlowID\": 0,\r\n  \"processKey\": 1,\r\n  \"date\": 1476185861679,\r\n  \"messagedetails\": \"\",\r\n  \"errormessage\": \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16 copy",
+			"request": {
+				"url": "http://localhost:8082/events/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 18,\r\n  \"systemId\": 25,\r\n  \"eventFlowID\": 0,\r\n  \"processKey\": 1,\r\n  \"date\": 1476185861679,\r\n  \"messagedetails\": \"\",\r\n  \"errormessage\": \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16 copy",
+			"request": {
+				"url": "http://localhost:8082/events/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 17,\r\n  \"systemId\": 25,\r\n  \"eventFlowID\": 0,\r\n  \"processKey\": 1,\r\n  \"date\": 1476185861679,\r\n  \"messagedetails\": \"\",\r\n  \"errormessage\": \"\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
