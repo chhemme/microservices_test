@@ -21,6 +21,14 @@ public class SystemEvent {
 	private String errormessage;
 
 
+	public SystemEvent(){
+
+	}
+
+	public SystemEvent(String eventId, String systemId, String eventFlowID, long processKey, Date date) {
+		this(eventId, systemId, eventFlowID, processKey, date, STATE_TYPE.SUCCESS, "", "");
+	}
+
 	public SystemEvent(String eventId, String systemId, String eventFlowID, long processKey, Date date, STATE_TYPE state) {
 		this(eventId, systemId, eventFlowID, processKey, date, state, "", "");
 	}

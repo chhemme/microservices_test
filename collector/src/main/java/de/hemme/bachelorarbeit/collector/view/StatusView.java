@@ -8,16 +8,16 @@ import io.dropwizard.views.View;
  */
 public class StatusView extends View {
 
-    private final CollectorStore collectorStore;
+    private final int queueSize;
 
-    public StatusView(CollectorStore collectorStore) {
+    public StatusView(int queueSize) {
         super("collectorStore.mustache");
-        this.collectorStore = collectorStore;
+        this.queueSize = queueSize;
 
     }
 
-    public CollectorStore getCollectorStore() {
-        return collectorStore;
+    public int getQueueSize() {
+        return queueSize;
     }
 
 

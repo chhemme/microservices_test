@@ -4,6 +4,8 @@ import de.hemme.bachelorarbeit.collector.entity.SystemEvent;
 import io.dropwizard.lifecycle.Managed;
 
 import java.util.HashMap;
+import java.util.Queue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.Maps;
@@ -14,16 +16,16 @@ import com.google.common.collect.Maps;
  */
 public class CollectorStore implements Managed {
 
-	final HashMap<String, SystemEvent> internalStore = Maps.newHashMap();
+
+	final Queue<SystemEvent> internalQueue = new LinkedBlockingQueue<>();
 	private boolean running = true;
 
 	public void store(final SystemEvent systemEvent) {
-
-		internalStore.put(systemEvent.getEventId(), systemEvent);
+		internalQueue.add(systemEvent);
 	}
 
-	public Optional<SystemEvent> get(final String name) {
-		return Optional.fromNullable(internalStore.get(name));
+	public Optional<SystemEvent> getNextSystemEvent() {
+		return Optional.fromNullable(internalQueue.poll());
 	}
 
 	@Override
@@ -41,7 +43,7 @@ public class CollectorStore implements Managed {
 	}
 
 	public int getStoreSize(){
-		return internalStore.size();
+		return internalQueue.size();
 	}
 
 }
