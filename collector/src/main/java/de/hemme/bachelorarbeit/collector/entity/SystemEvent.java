@@ -1,10 +1,6 @@
 package de.hemme.bachelorarbeit.collector.entity;
 
 import java.util.Date;
-import java.util.UUID;
-
-import com.google.common.base.Objects;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,53 +9,55 @@ import javax.validation.constraints.NotNull;
  */
 public class SystemEvent {
 
-	private long eventId;
-	private long systemId;
-	private long eventFlowID;
+	private String eventId;
+	private String systemId;
+	private String eventFlowID;
 	private long processKey;
 
 	@NotNull
 	private Date date;
+	private STATE_TYPE state;
 	private String messagedetails;
 	private String errormessage;
 
-	public SystemEvent() {
+
+	public SystemEvent(String eventId, String systemId, String eventFlowID, long processKey, Date date, STATE_TYPE state) {
+		this(eventId, systemId, eventFlowID, processKey, date, state, "", "");
 	}
 
-	public SystemEvent(long eventId, long systemId, long processKey, Date date) {
-		this(eventId, systemId, processKey, date, "", "");
-	}
-
-	public SystemEvent(long eventId, long systemId, long processKey, Date date, String messagedetails, String errormessage) {
+	public SystemEvent(String eventId, String systemId, String eventFlowID, long processKey, Date date, STATE_TYPE state, String messagedetails, String errormessage) {
 		this.eventId = eventId;
 		this.systemId = systemId;
+		this.eventFlowID = eventFlowID;
 		this.processKey = processKey;
 		this.date = date;
+		this.state = state;
 		this.messagedetails = messagedetails;
 		this.errormessage = errormessage;
 	}
 
+	public STATE_TYPE getState() {
+		return state;
+	}
 
-
-	public long getEventId() {
+	public String getEventId() {
 		return eventId;
 	}
 
-
-	public String getMessagedetails() {
-		return messagedetails;
-	}
-
-	public long getSystemId() {
+	public String getSystemId() {
 		return systemId;
 	}
 
-	public long getEventFlowID() {
+	public String getEventFlowID() {
 		return eventFlowID;
 	}
 
 	public long getProcessKey() {
 		return processKey;
+	}
+
+	public String getMessagedetails() {
+		return messagedetails;
 	}
 
 	public Date getDate() {

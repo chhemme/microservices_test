@@ -19,7 +19,7 @@ public class CollectorStore implements Managed {
 
 	public void store(final SystemEvent systemEvent) {
 
-		internalStore.put(Long.toString(systemEvent.getEventId()), systemEvent);
+		internalStore.put(systemEvent.getEventId(), systemEvent);
 	}
 
 	public Optional<SystemEvent> get(final String name) {
@@ -38,6 +38,10 @@ public class CollectorStore implements Managed {
 
 	public boolean isRunning() {
 		return running;
+	}
+
+	public int getStoreSize(){
+		return internalStore.size();
 	}
 
 }

@@ -15,7 +15,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import de.hemme.bachelorarbeit.collector.entity.SystemEvent;
+import de.hemme.bachelorarbeit.collector.view.StatusView;
 import de.hemme.bachelorarbeit.collector.view.WizardView;
+import io.dropwizard.views.View;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,12 +44,19 @@ public class CollectorResource {
 		this.store = store;
 	}
 
-	@Path("ping")
-	@Timed
+//	@Path("ping")
+//	@Timed
+//	@GET
+//	public SystemEvent getPongWizard() {
+//		log.debug("ping was called...");
+//		return new SystemEvent(005, 001, 001, new Date());
+//	}
+
+	@Path("status")
 	@GET
-	public SystemEvent getPongWizard() {
-		log.debug("ping was called...");
-		return new SystemEvent(005, 001, 001, new Date());
+	@Produces({ MediaType.TEXT_HTML, MediaType.APPLICATION_JSON })
+	public StatusView getStatusView(){
+		return new StatusView(store);
 	}
 
 	@Path("{name}")
@@ -59,7 +68,7 @@ public class CollectorResource {
 	@POST
 	public Response addWizard(@Valid final SystemEvent systemEvent) throws URISyntaxException {
 		store.store(systemEvent);
-		return Response.created(new URI("/" + escape(Long.toString(systemEvent.getEventId())))).build();
+		return Response.created(new URI("/" + escape(systemEvent.getEventId()))).build();
 	}
 
 	private String escape(final String wizardName) {

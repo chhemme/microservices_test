@@ -1,5 +1,6 @@
 package de.hemme.bachelorarbeit.collector;
 
+import de.hemme.bachelorarbeit.collector.entity.STATE_TYPE;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.servlets.tasks.Task;
@@ -64,12 +65,27 @@ public class CollectorApplication extends Application<CollectorConfig> {
 
 		environment.admin().addTask(new HelloTask("Hello"));
 
-		// Create two entries
-		store.store(new SystemEvent(001, 001, 001, new Date()));
-		store.store(new SystemEvent(002, 001, 001, new Date()));
-		store.store(new SystemEvent(003, 001, 001, new Date()));
-//		store.store(new SystemEvent("Nachricht01", "0800245"));
-//		store.store(new SystemEvent("Nachricht02", "Testnachricht"));
+		//Example entries
+
+		store.store(new SystemEvent("TXP06/in", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TXP06/out", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TXP06/in", "VMS", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/out", "VMS", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/out", "VMS", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/in", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/out", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/in", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/out", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS ));
+
+		store.store(new SystemEvent("TXP06/in", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TXP06/out", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TXP06/in", "VMS", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/out", "VMS", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/out", "VMS", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/in", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("CC07/out", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/in", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
+		store.store(new SystemEvent("TSO11/out", "TBI", "Auctionbooking", 2, new Date(), STATE_TYPE.SUCCESS ));
 	}
 
 	/**

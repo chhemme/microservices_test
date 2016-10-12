@@ -24,6 +24,13 @@
         <processorPath useClasspath="true" />
         <module name="dw-helloworld" />
       </profile>
+      <profile default="false" name="Annotation profile for summarizer" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="summarizer" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="dw-helloworld" target="1.7" />

@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import de.hemme.bachelorarbeit.summarizer.entity.STATE_TYPE;
 import de.hemme.bachelorarbeit.summarizer.entity.SystemEvent;
 import de.hemme.bachelorarbeit.summarizer.store.SummarizerStore;
 import org.slf4j.Logger;
@@ -47,7 +48,7 @@ public class SummarizerResource {
 	@GET
 	public SystemEvent getPongWizard() {
 		log.debug("ping was called...");
-		return new SystemEvent(005, 001, 001, new Date());
+		return new SystemEvent("TXP06/in", "TBI", "Auctionbooking", 1, new Date(), STATE_TYPE.SUCCESS );
 	}
 
 	@Path("{name}")
@@ -59,7 +60,7 @@ public class SummarizerResource {
 	@POST
 	public Response addWizard(@Valid final SystemEvent systemEvent) throws URISyntaxException {
 		store.store(systemEvent);
-		return Response.created(new URI("/" + escape(Long.toString(systemEvent.getEventId())))).build();
+		return Response.created(new URI("/" + escape(systemEvent.getEventId()))).build();
 	}
 
 	private String escape(final String wizardName) {
